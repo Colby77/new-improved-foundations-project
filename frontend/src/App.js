@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 import Instructions from './components/Instructions';
+import Login from './components/Login'
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   return (
     <Router>
     <div>
-      <Header />
+    <Header />
       <Routes>
         <Route
           path='/'
@@ -23,6 +24,11 @@ function App() {
           path='/create-char'
           element={
             <Instructions />
+          } />
+        <Route
+          path='/account'
+          element={
+            <Login />
           } />
       </Routes>
       <Footer />
