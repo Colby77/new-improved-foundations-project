@@ -7,6 +7,15 @@ services:
       context: .
       dockerfile: dockerfiles/fastapi.dockerfile
     ports:
-      - "8000:8000"
+      - "8000:80"
     volumes:
       - ./backend:/app
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfiles/react.dockerfile
+    ports:
+    - "3000:3000"
+    volumes:
+      - ./frontend:/app
