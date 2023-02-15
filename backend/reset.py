@@ -10,7 +10,8 @@ import models, database
 
 def reset_db():
     models.Base.metadata.drop_all(
-        bind=database.engine, tables=[models.User.__table__, models.Character.__table__]
+        bind=database.engine, 
+        tables=[models.User.__table__, models.Character.__table__, models.Auth.__table__]
         )
 
 

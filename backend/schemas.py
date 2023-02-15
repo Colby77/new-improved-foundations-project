@@ -36,7 +36,7 @@ class UserCreate(UserBase):
     password: str
 
 class User(UserBase):
-    id: int
+    user_id: int
     # username: str
     characters: list[Character] = []
 

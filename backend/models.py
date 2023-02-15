@@ -9,9 +9,17 @@ class User(Base):
     user_id = Column(Integer, primary_key=True, autoincrement=True)
     email= Column(String, unique=True, index=True, nullable=False)
     username = Column(String, unique=True, nullable=False)
-    hashed_password = Column(String)
+    # hashed_password = Column(String)
 
     characters = relationship('Character', back_populates='creator')
+
+
+class Auth(Base):
+    __tablename__ = 'auth'
+
+    auth_id = Column(Integer, autoincrement=True, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.user_id'), unique=True, nullable=False)
+    password = Column(String, nullable=False)
 
 
 class Character(Base):
