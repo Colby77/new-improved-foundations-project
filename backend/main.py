@@ -3,6 +3,7 @@ The main file for the FastAPI backend
 
 Run the server with:
     'uvicorn main:app --reload'
+while inside the backend directory
 """
 
 from fastapi import FastAPI, Depends, HTTPException

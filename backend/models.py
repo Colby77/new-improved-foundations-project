@@ -9,6 +9,7 @@ class User(Base):
     user_id = Column(Integer, primary_key=True, autoincrement=True)
     email= Column(String, unique=True, index=True, nullable=False)
     username = Column(String, unique=True, nullable=False)
+    hashed_password = Column(String)
 
     characters = relationship('Character', back_populates='creator')
 
@@ -17,6 +18,7 @@ class Character(Base):
     __tablename__ = 'characters'
 
     character_id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey('users.user_id'))
     is_private = Column(Boolean, default=True)
     name = Column(String, nullable=False)
     race = Column(String, nullable=False)
