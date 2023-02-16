@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 class CharacterBase(BaseModel):
     is_private: bool
+    user_id: int
+
     name: str
     race: str
     char_class: str
@@ -18,8 +20,7 @@ class CharacterBase(BaseModel):
     alignment: str
 
 class Character(CharacterBase):
-    id: int
-    creator_id: int
+    character_id: int
 
     class Config:
         orm_mode = True

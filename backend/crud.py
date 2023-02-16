@@ -27,9 +27,6 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.commit()
     db.refresh(new_user_auth)
 
-    # print(dir(new_user))
-    # print(new_user.user_id)
-
     return new_user
 
 
@@ -38,8 +35,10 @@ def get_characters(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_character(db: Session, character: schemas.CharacterCreate, user_id: int):
-    db_character = models.Character(**character.dict(), creator=user_id)
-    db.add(db_character)
+    new_character = models.Character(**character.dict())
+
+    db.add(new_character)
     db.commit()
-    db.refresh(db_character)
-    return db_character
+    db.refresh(new_character)
+    
+    return new_character
