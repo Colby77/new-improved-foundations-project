@@ -30,10 +30,8 @@ def get_db():
 @app.get("/")
 def root():
     return {"Message": {
-                "Hello": "World",
-                "Testing": "123 abc"
-            }
-        }
+                "Hello": "World"}
+                }
 
 
 @app.post('/users/', response_model=schemas.User)

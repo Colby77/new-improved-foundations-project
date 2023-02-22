@@ -1,4 +1,6 @@
 /backend/__pycache__
 /backend/.env
+.env
+/db-data
 
 notes.txt

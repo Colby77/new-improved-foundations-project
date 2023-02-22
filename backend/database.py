@@ -7,10 +7,14 @@ from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
 
-load_dotenv('.env')
+try:
+    SQLALCHEMY_DATABASE_URL = os.environ.get('DOCKER_DB_URL')
+except KeyError:
+    load_dotenv('.env')
+    SQLALCHEMY_DATABASE_URL = os.enviorn.get('DATABASE_URL')
 
 
-SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
+print(SQLALCHEMY_DATABASE_URL)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
