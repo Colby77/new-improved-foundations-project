@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import axios from 'axios'
 
 import Header from './components/Header'
 import Carousel from './components/Carousel';
@@ -9,6 +10,15 @@ import Login from './components/Login'
 
 function App() {
 
+  const registerUser = async (user) => {
+    // console.log(user)
+    await axios.post('/users/', user)
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch(err => console.log(err))
+    
+  }
 
   return (
     <Router>
@@ -28,7 +38,7 @@ function App() {
         <Route
           path='/account'
           element={
-            <Login />
+            <Login onRegister={registerUser}/>
           } />
       </Routes>
       <Footer />
